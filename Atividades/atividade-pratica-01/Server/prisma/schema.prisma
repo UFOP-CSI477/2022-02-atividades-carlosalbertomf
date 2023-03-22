@@ -1,0 +1,144 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Estado {
+  id         Int      @id @default(autoincrement())
+  nome       String
+  sigla      String
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+
+  cidades Cidade[]
+
+  @@map("estados")
+}
+
+model Cidade {
+  id         Int      @id @default(autoincrement())
+  nome       String
+  estado_id  Int
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+
+  estado       Estado         @relation(fields: [estado_id], references: [id])
+  unidade      Unidade[]
+  locaisColeta LocaisColeta[]
+  pessoas      Pessoa[]
+
+  @@map("cidades")
+}
+
+///////////////////////////
+
+model Unidade {
+  id          Int      @id @default(autoincrement())
+  nome        String
+  numero      String
+  complemento String
+  cidade_id   Int      
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now())
+
+  distribuicoes Distribuicoes[]
+  cidade        Cidade          @relation(fields: [cidade_id], references: [id])
+
+  @@map("unidades")
+}
+
+model LocaisColeta {
+  id          Int      @id @default(autoincrement())
+  nome        String
+  rua         String
+  numero      String
+  complemento String?
+  cidade_id   Int
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now())
+
+  cidade  Cidade    @relation(fields: [cidade_id], references: [id])
+  doacoes Doacoes[]
+
+  @@map("locais_coleta")
+}
+
+model Doacoes {
+  id         Int      @id @default(autoincrement())
+  pessoa_id  Int      
+  local_id   Int
+  data       DateTime
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+
+  locais_coleta LocaisColeta @relation(fields: [local_id], references: [id])
+  pessoa        Pessoa       @relation(fields: [pessoa_id], references: [id])
+  produto       Produto[]
+
+  @@map("doacoes")
+}
+
+model Produto {
+  id         Int      @id @default(autoincrement())
+  etiqueta   String
+  doacao_id  Int
+  validade   DateTime
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+
+  doacoes       Doacoes         @relation(fields: [doacao_id], references: [id])
+  distribuicoes Distribuicoes[]
+
+  @@map("produtos")
+}
+
+model TipoSanguineo {
+  id         Int      @id @default(autoincrement())
+  tipo       String
+  fator      String
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+
+  pessoas Pessoa[]
+
+  @@map("tipos_sanguineos")
+}
+
+model Distribuicoes {
+  id         Int      @id @default(autoincrement())
+  produto_id Int
+  unidade_id Int
+  data       DateTime
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+
+  unidade  Unidade @relation(fields: [unidade_id], references: [id])
+  produtos Produto @relation(fields: [produto_id], references: [id])
+
+  @@map("distribuicoes")
+}
+
+model Pessoa {
+  id          Int      @id @default(autoincrement())
+  nome        String
+  rua         String
+  numero      String
+  complemento String?
+  documento   String
+  cidade_id   Int      
+  tipo_id     Int      
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now())
+
+  doacoes        Doacoes[]
+  cidades        Cidade        @relation(fields: [cidade_id], references: [id])
+  tipo_sanguineo TipoSanguineo @relation(fields: [tipo_id], references: [id])
+
+  @@map("pessoas")
+}
+
+
