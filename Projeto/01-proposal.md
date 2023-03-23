@@ -13,15 +13,15 @@
 <!-- Apresentar o tema. -->
 ### 1. Tema
 
-  O trabalho final tem como tema o desenvolvimento de sistema para reservar horários para utilização de uma quadra poliesportiva
+Desenvolver um sistema web de controle de alocação de recursos de uma quadra poliesportiva, tendo a reserva de horário para utilização como principal recurso disponível 
 
 <!-- Descrever e limitar o escopo da aplicação. -->
 ### 2. Escopo
 
-  Este projeto terá as seguintes funcionalidades:
-  1 - Login diretamente com o gmail (utilizando uma API do Firebase)
-  2 - Reserva de um X horário
-  3 - Validações e consistência do usuário logado
+  Este projeto terá as seguintes funcionalidades: <br /> 
+  1 - Login diretamente com o gmail (utilizando uma API do Firebase) <br /> 
+  2 - Reserva de um X horário <br /> 
+  3 - Validações e consistência do usuário logado 
 
 <!-- Apresentar restrições de funcionalidades e de escopo. -->
 ### 3. Restrições
@@ -31,8 +31,11 @@
 <!-- Construir alguns protótipos para a aplicação, disponibilizá-los no Github e descrever o que foi considerado. //-->
 ### 4. Protótipo
 
-  Protótipos para as páginas (descrever quais páginas) foram elaborados, e podem ser encontrados em...
+ Tela de Menu: Acessar demais telas <br /> 
+ Tela de Locais: Incluir, alterar, excluir as quadras disponíveis para reservar (Admin) <br /> 
+ Tela de Usuários: Incluir, alterar, excluir os usuários (Admin) <br /> 
+ Tela de Reservas: Incluir, alterar, excluir as reservas realizadas  <br /> 
 
 ### 5. Referências
 
-  Referências podem ser incluídas, caso necessário. Utilize o padrão ABNT.
+<a href="https://github.com/fboliveira/CSI477-Sistemas-Web">Github fboliveira</a>
