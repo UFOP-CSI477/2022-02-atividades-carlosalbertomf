@@ -29,9 +29,9 @@ Utilizar o GitHub para controle de versão através do Classroom.
 ### 5. Instruções para instalação e execução
 <!-- Descrever o que deve ser feito para instalar (ou baixar) a aplicação, o que precisa ser configurando (parâmetros, banco de dados e afins) e como executá-la. -->
 O passo a passo para a instalação necessária podem ser encontradas: 
-<a href=“https://github.com/fboliveiraCSI477-Sistemas-Web/blob/master/Lectures/nodejs-project.md“>aqui</a> e 
-<a href=“https://github.com/fboliveira/CSI477-Sistemas-Web/blob/master/Lectures/react.md“>aqui</a>.
+<a href="https://github.com/fboliveiraCSI477-Sistemas-Web/blob/master/Lectures/nodejs-project.md">aqui</a> e 
+<a href="https://github.com/fboliveira/CSI477-Sistemas-Web/blob/master/Lectures/react.md">aqui</a>.
 
 ### 6. Referências
 <!-- Referências podem ser incluídas, caso necessário. Utilize o padrão ABNT. -->
-<a href="https://github.com/fboliveira/CSI477-Sistemas-Web">Github fboliveira</a>
+<a href="https://github.com/fboliveira/CSI477-Sistemas-Web">Github</a>
