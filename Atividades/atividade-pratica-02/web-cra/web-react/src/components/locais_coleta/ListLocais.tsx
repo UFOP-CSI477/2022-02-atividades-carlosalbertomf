@@ -75,7 +75,7 @@ const ListLocais = () => {
                         <td>Rua</td>
                         <td>Número</td>
                         <td>Complemento</td>
-                        <td>ID da Cidade</td>
+                        <td>Cidade</td>
                         <td>Atualizar</td>
                         <td>Excluir</td>
                     </tr>
@@ -89,7 +89,7 @@ const ListLocais = () => {
                             <td>{local.rua}</td>
                             <td>{local.numero}</td>
                             <td>{local.complemento}</td>
-                            <td>{local.cidade_id}</td>
+                            <td>{local.cidade.nome}</td>
 
                             <td><Link to={`/locaisdecoleta/${local.id}`}>Atualizar</Link></td>
                             <td><button onClick={() => { handleDeletePessoa(local.id) }}>Excluir</button></td>

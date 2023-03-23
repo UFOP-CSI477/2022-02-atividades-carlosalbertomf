@@ -4,7 +4,11 @@ export class GetAllLocaisController {
 
     async handle(request,response)
     {
-        const locaisColeta = await prisma.locaisColeta.findMany();
+        const locaisColeta = await prisma.locaisColeta.findMany({
+            include: {
+                cidade: true
+            }
+        });
         return response.json(locaisColeta);
     }
 }

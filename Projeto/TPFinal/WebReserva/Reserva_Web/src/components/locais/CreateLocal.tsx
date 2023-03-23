@@ -53,14 +53,14 @@ const CreateLocal = () => {
                     <input type="text"
                         name="descricao"
                         id="descricao"
-                        value={descricao}
+                        value=""
                         placeholder="Nome do Local"
                         onChange={e => setDescricao(e.target.value)} 
                     />
                 </div>
 
                 <button type="submit">Cadastrar</button>
-                <button onClick={() => setDescricao('')} type="button">Limpar</button>
+                <button type="reset">Limpar</button>
                 <li><Link to="/local">Voltar</Link></li>
 
             </form>

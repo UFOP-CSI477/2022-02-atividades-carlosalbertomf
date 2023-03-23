@@ -134,7 +134,7 @@ const CreateDoacao = () => {
 
 
                 <button type="submit">Cadastrar</button>
-                <button type="submit">Limpar</button>
+                <button type="reset">Limpar</button>
                 <li><Link to="/doacoes">Voltar</Link></li>
 
             </form>

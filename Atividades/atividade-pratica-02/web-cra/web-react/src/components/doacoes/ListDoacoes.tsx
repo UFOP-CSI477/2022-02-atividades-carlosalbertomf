@@ -11,7 +11,7 @@ export interface DoacaoInterface {
     data: string;
 
     pessoa: PessoaInterface;
-    local: LocalInterface;
+    locais_coleta: LocalInterface;
 
 }
 
@@ -84,8 +84,8 @@ const ListDoacoes = () => {
                     {doacao.map(doacao => (
                         <tr key={doacao.id}>
                             <td>{doacao.id}</td>
-                            <td>{doacao.pessoa_id}</td>
-                            <td>{doacao.local_id}</td>
+                            <td>{doacao.pessoa.nome}</td>
+                            <td>{doacao.locais_coleta.nome}</td>
                             <td>{doacao.data}</td>
 
                             <td><Link to={`/doacoes/${doacao.id}`}>Atualizar</Link></td>
