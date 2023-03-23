@@ -1,16 +1,34 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import api from "../../services/api";
 import { Link, useNavigate } from "react-router-dom";
+import { UsuarioInterface } from "../usuarios/ListUsuario";
+import { LocalInterface } from "../locais/ListLocal";
 
 const CreateReserva = () => {
 
 
     const [hora_ini, setHoraIni] = useState('');
     const [hora_fim, setHoraFim] = useState('');
-    const [usuario_id, setUsuarioId] = useState('');
-    const [local_id, setLocalId] = useState('');
+    const [usuario_id, setUsuarioId] = useState(0);
+    const [local_id, setLocalId] = useState(0);
+
 
     const navigate = useNavigate();
+
+
+    const [usuario, setUsuario] = useState<UsuarioInterface[]>([]);
+    useEffect(() => {
+        api.get('/usuario').then(response => {
+            setUsuario(response.data);
+        })
+    })
+
+    const [local, setLocal] = useState<LocalInterface[]>([]);
+    useEffect(() => {
+        api.get('/local').then(response => {
+            setLocal(response.data);
+        })
+    })
 
 
     const handleNovaReserva = async (evenet: React.FormEvent<HTMLFormElement>) => {
@@ -26,10 +44,9 @@ const CreateReserva = () => {
         }
 
         try {
-            if(data.hora_ini === "" || data.hora_fim === "" || usuario_id.toString() === ""|| local_id.toString() === "")
-            {
+            if (data.hora_ini === "" || data.hora_fim === "" || usuario_id.toString() === "" || local_id.toString() === "") {
                 alert('Dados incompletos. Favor inserir todos os dados para concluir a reserva');
-                
+
                 return
             }
 
@@ -44,14 +61,6 @@ const CreateReserva = () => {
 
         }
     }
-
-    function limparCampos(){
-        setHoraIni(''); 
-        setHoraFim('');
-        setLocalId('');
-        setUsuarioId('');
-        return;
-    };
 
 
     return (
@@ -68,7 +77,7 @@ const CreateReserva = () => {
                         id="hora_ini"
                         value={hora_ini}
                         placeholder="Horário Inicial da Reserva"
-                        onChange={e => setHoraIni(e.target.value)} 
+                        onChange={e => setHoraIni(e.target.value)}
                     />
                 </div>
 
@@ -79,38 +88,61 @@ const CreateReserva = () => {
                         id="hora_fim"
                         value={hora_fim}
                         placeholder="Horário Final da Reserva"
-                        onChange={e => setHoraFim(e.target.value)} 
+                        onChange={e => setHoraFim(e.target.value)}
                     />
                 </div>
 
                 <div>
-                    <label htmlFor="local_id">Local: </label>
-                    <input type="number"
-                        name="local_id"
-                        id="local_id"
+                    <label>Local a ser Reservado: </label>
+                    <select
+                        name="local"
+                        id="local"
                         value={local_id}
-                        placeholder="Local a ser reservado"
-                        onChange={e => setLocalId(e.target.value)} 
-                    />
+                        onChange={e =>
+                            setLocalId(parseInt(e.target.value))}>
+
+                        <option
+                            value="0"
+                            selected>Selecione</option>
+                        {
+                            local.map(local => (
+                                <option
+                                    value={local.id}>
+                                    {local.descricao}
+                                </option>
+                            ))
+                        }
+                    </select>
                 </div>
 
-
                 <div>
-                    <label htmlFor="usuario_id">Usuário: </label>
-                    <input type="number"
-                        name="usuario_id"
-                        id="usuario_id"
+                    <label>Nome do Usuário: </label>
+                    <select
+                        name="usuario"
+                        id="usuario"
                         value={usuario_id}
-                        placeholder="ID do usuário"
-                        onChange={e => setUsuarioId(e.target.value)} 
-                    />
+                        onChange={e =>
+                            setUsuarioId(parseInt(e.target.value))}>
+
+                        <option
+                            value="0"
+                            selected>Selecione</option>
+                        {
+                            usuario.map(usuario => (
+                                <option
+                                    value={usuario.id}>
+                                    {usuario.nome}
+                                </option>
+                            ))
+                        }
+                    </select>
                 </div>
 
                 <button type="submit">Confirmar Reserva</button>
-                <button onClick={() => limparCampos} type="button">Limpar</button>
+                <button type="reset">Limpar</button>
                 <li><Link to="/reserva">Voltar</Link></li>
-
             </form>
+
         </div>
     );
 }

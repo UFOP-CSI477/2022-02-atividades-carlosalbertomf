@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 import api from "../../services/api"
+import { LocalInterface } from "../locais/ListLocal";
+import { UsuarioInterface } from "../usuarios/ListUsuario";
 
 export interface ReservaInterface { 
     id: number;
@@ -9,6 +11,9 @@ export interface ReservaInterface {
     usuario_id: string;
     local_id: string;
 
+    location: LocalInterface;
+    user: UsuarioInterface;
+    
 }
 
 
@@ -54,26 +59,24 @@ const ListReserva = () => {
             console.log(response.data);
             setReserva(response.data);
         })
-
     })
 
 
     return (
-
         <div>
             <h2>Lista de Reservas: </h2>
 
             <table>
                 <thead>
                     <tr>
-                        <td>ID</td>
-                        <td>Início</td>
-                        <td>Final</td>
-                        <td>Usuario ID</td>
-                        <td>Local ID</td>
-
-                        <td>Atualizar</td>
-                        <td>Excluir</td>
+                        <th>ID</th>
+                        <th>Data</th>
+                        <th>Hora Inicial</th>
+                        <th>Hora Final</th>
+                        <th>Usuario</th>
+                        <th>Local</th>
+                        <th>Atualizar</th>
+                        <th>Excluir</th>
                     </tr>
                 </thead>
 
@@ -81,10 +84,11 @@ const ListReserva = () => {
                     {reserva.map(reserva => (
                         <tr key={reserva.id}>
                             <td>{reserva.id}</td>
-                            <td>{reserva.hora_ini}</td>
-                            <td>{reserva.hora_fim}</td>
-                            <td>{reserva.usuario_id}</td>
-                            <td>{reserva.local_id}</td>
+                            <td>{reserva.hora_ini.split('T')[0]}</td>
+                            <td>{reserva.hora_ini.split('T')[1].substring(0,8)}</td>
+                            <td>{reserva.hora_fim.split('T')[1].substring(0,8)}</td>
+                            <td>{reserva.user.nome}</td>
+                            <td>{reserva.location.descricao}</td>
 
                             <td><Link to={`/reserva/${reserva.id}`}>Atualizar</Link></td>
                             <td><button onClick={() => {handleDeleteReserva(reserva.id)}}>Excluir</button></td>
@@ -96,7 +100,7 @@ const ListReserva = () => {
 
             <li><Link to="/reserva/novo">Cadastrar Reserva</Link></li>
 
-            <li><Link to="/menu">Voltar</Link></li>
+            <li><Link to="/">Voltar</Link></li>
             
 
         </div>

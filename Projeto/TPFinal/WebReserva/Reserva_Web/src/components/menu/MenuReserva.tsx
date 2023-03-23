@@ -7,6 +7,7 @@ const MenuReserva = () => {
             <ul>
                 {<li><Link to="/local">Local</Link></li> } 
                 {<li><Link to="/reserva">Reservas</Link></li> } 
+                {<li><Link to="/usuario">Usuários</Link></li> } 
 
             </ul>
         </>

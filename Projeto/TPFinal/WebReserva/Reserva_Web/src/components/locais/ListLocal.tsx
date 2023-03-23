@@ -64,11 +64,10 @@ const ListLocal = () => {
             <table>
                 <thead>
                     <tr>
-                        <td>ID</td>
-                        <td>Descricao</td>
-
-                        <td>Atualizar</td>
-                        <td>Excluir</td>
+                        <th>ID</th>
+                        <th>Descricao</th>
+                        <th>Atualizar</th>
+                        <th>Excluir</th>
                     </tr>
                 </thead>
 
@@ -88,7 +87,7 @@ const ListLocal = () => {
 
             <li><Link to="/local/novo">Cadastrar Local</Link></li>
 
-            <li><Link to="/menu">Voltar</Link></li>
+            <li><Link to="/">Voltar</Link></li>
             
 
         </div>

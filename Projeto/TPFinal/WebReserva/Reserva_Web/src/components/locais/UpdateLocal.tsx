@@ -70,7 +70,7 @@ const UpdateLocal = () => {
 
                 <button type="submit">Atualizar</button>
                 <Link to="/local">Cancelar</Link>
-                <li> <Link to="/menu">Voltar</Link> </li>
+                <li> <Link to="/">Voltar</Link> </li>
 
             </form>
         </div>

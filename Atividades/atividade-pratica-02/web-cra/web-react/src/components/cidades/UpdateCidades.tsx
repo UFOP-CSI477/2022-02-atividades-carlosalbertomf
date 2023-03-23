@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../../services/api";
-import { Link, redirect, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { EstadoInterface } from "../estados/ListEstados";
 
 const UpdateCidades = () => {
@@ -8,7 +8,7 @@ const UpdateCidades = () => {
 
     const [nome, setNome] = useState('');
     const [estadoID, setEstadoID] = useState(0);
-    
+
     const [estados, setEstados] = useState<EstadoInterface[]>([]);
 
 
@@ -38,13 +38,12 @@ const UpdateCidades = () => {
             id: parseInt(String(id)),
             nome: nome,
             estadoID: parseInt(estadoID.toString())
-            
+
         }
 
         try {
 
-            if(data.estadoID === 0 || data.nome === "")
-            {
+            if (data.estadoID === 0 || data.nome === "") {
                 window.location.reload();
                 return
             }
@@ -69,7 +68,7 @@ const UpdateCidades = () => {
 
             <form onSubmit={handleUpdateCidade}>
 
-            <div>
+                <div>
                     <label htmlFor="nome">Nome: </label>
                     <input type="text"
                         name="nome"

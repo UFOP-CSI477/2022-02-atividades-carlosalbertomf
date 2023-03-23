@@ -3,10 +3,10 @@ import './App.css'
 import MenuReserva from "./components/menu/MenuReserva"
 
 function App() {
-  
+
   return (
     <div className="App">
-      <h2>SISTEMA DE RESERVA</h2>
+      <h1>SISTEMA DE RESERVA</h1>
       <MenuReserva />
     </div>
   )

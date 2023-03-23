@@ -53,7 +53,7 @@ const CreateLocal = () => {
                     <input type="text"
                         name="descricao"
                         id="descricao"
-                        value=""
+                        value={descricao}
                         placeholder="Nome do Local"
                         onChange={e => setDescricao(e.target.value)} 
                     />
