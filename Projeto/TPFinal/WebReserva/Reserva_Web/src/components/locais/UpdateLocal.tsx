@@ -49,6 +49,18 @@ const UpdateLocal = () => {
 
     }
 
+    const linkCancel = {
+        margin: "1rem",
+        textDecoration: "none",
+        color: 'red'
+      };
+
+      const linkVoltar = {
+        margin: "1rem",
+        textDecoration: "none",
+        color: 'blue'
+      };
+
 
     return (
 
@@ -58,7 +70,7 @@ const UpdateLocal = () => {
             <form onSubmit={handleUpdateDescricao}>
 
                 <div>
-                    <label htmlFor="descricao">Descrição do Local</label>
+                    <label htmlFor="descricao">Descrição do Local: </label>
                     <input type="text"
                         name="descricao"
                         id="descricao"
@@ -68,9 +80,9 @@ const UpdateLocal = () => {
                     />
                 </div>
 
-                <button type="submit">Atualizar</button>
-                <Link to="/local">Cancelar</Link>
-                <li> <Link to="/">Voltar</Link> </li>
+                <button type="submit" className="button buttonAtt">Atualizar</button>
+                <Link to="/local" style={linkCancel}>Cancelar</Link>
+                <li> <Link to="/" style={linkVoltar}>Voltar</Link> </li>
 
             </form>
         </div>

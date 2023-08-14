@@ -4,6 +4,8 @@ import api from "../../services/api"
 import { LocalInterface } from "../locais/ListLocal";
 import { UsuarioInterface } from "../usuarios/ListUsuario";
 
+
+
 export interface ReservaInterface { 
     id: number;
     hora_ini: string;
@@ -69,7 +71,7 @@ const ListReserva = () => {
             <table>
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>Reservar</th>
                         <th>Data</th>
                         <th>Hora Inicial</th>
                         <th>Hora Final</th>
@@ -91,7 +93,9 @@ const ListReserva = () => {
                             <td>{reserva.location.descricao}</td>
 
                             <td><Link to={`/reserva/${reserva.id}`}>Atualizar</Link></td>
-                            <td><button onClick={() => {handleDeleteReserva(reserva.id)}}>Excluir</button></td>
+                            <td><button type="button" 
+                                        className="btn btn-danger btn-xs" 
+                                        onClick={() => {handleDeleteReserva(reserva.id)}}>Excluir</button></td>
                         </tr>
                     ))
                     }

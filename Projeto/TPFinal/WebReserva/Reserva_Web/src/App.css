@@ -4,7 +4,7 @@
   padding: 2rem;
   text-align: center;
 }
-
+/* 
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -39,7 +39,7 @@
 
 .read-the-docs {
   color: #888;
-}
+} */
 
 table{ 
   background: rgb(207, 207, 207); 
@@ -48,22 +48,66 @@ table{
 }
 tr{/** Faz o estilo para as linhas. **/
   text-align: center; /** Centraliza o conteúdo. **/
-  color: black;
+  /* color: black; */
 }
 th{/** Faz o estilo para as células do cabeçalho. **/
   background: rgb(170, 170, 170); /** Cor do fundo. **/
-  color: black; /** Cor da fonte. **/
+  /* color: black;  */
 }
 td { 
   text-align: center; 
 }
 
-button{
-  background-color: blue;
+.buttonClear {background-color: #939393;
   color: white;
-  margin-left: 10px;
-
+  transition-duration: 0.4s;
+  margin-top: 1em;
+  margin-left: 1em;
 }
+
+.buttonClear:hover {
+  background-color: #c8c8c8; /* Green */
+  color: black;
+  border-color: white;
+  margin-top: 1em;
+}
+
+.buttonAtt {background-color: #3434ff;
+  color: white;
+  transition-duration: 0.4s;
+  margin-top: 1em;
+}
+
+.buttonAtt:hover {
+  background-color: #5996ff; /* Green */
+  color: black;
+  border-color: white;
+  margin-top: 1em;
+}
+
+.buttonConfirm {background-color: #62e641;
+  color: rgb(134, 134, 134);
+  transition-duration: 0.4s;
+  margin-top: 1em;
+}
+
+.buttonConfirm:hover {
+  background-color: #a7ee6d; /* Green */
+  color: black;
+  border-color: white;
+  margin-top: 1em;
+}
+
+.buttonExclude {background-color: #e76b63;
+  transition-duration: 0.4s;
+}
+
+.buttonExclude:hover {
+  background-color: #f33131; /* Green */
+  color: black;
+}
+
+
 h1{
   background-color: blue;
   color: white;
@@ -81,4 +125,7 @@ ul{
   background-color: rgb(170, 170, 170);
   color: blue;
   margin-top: 1px;
+}
+li{
+  color: white;
 }

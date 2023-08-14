@@ -2,6 +2,7 @@ import { useState } from "react";
 import api from "../../services/api";
 import { Link, useNavigate } from "react-router-dom";
 
+
 const CreateLocal = () => {
 
 
@@ -20,10 +21,9 @@ const CreateLocal = () => {
         }
 
         try {
-            if(data.descricao === "")
-            {
+            if (data.descricao === "") {
                 alert('Dados incompletos. Favor inserir a descrição do Local');
-                
+
                 return
             }
 
@@ -55,13 +55,15 @@ const CreateLocal = () => {
                         id="descricao"
                         value={descricao}
                         placeholder="Nome do Local"
-                        onChange={e => setDescricao(e.target.value)} 
+                        onChange={e => setDescricao(e.target.value)}
                     />
                 </div>
 
-                <button type="submit">Cadastrar</button>
-                <button type="reset">Limpar</button>
-                <li><Link to="/local">Voltar</Link></li>
+                <div>
+                        <button type="submit" className="button buttonConfirm">Cadastrar</button>
+                        <button type="reset" className="button buttonClear">Limpar</button>
+                    <li><Link to="/local">Voltar</Link></li>
+                </div>
 
             </form>
         </div>
